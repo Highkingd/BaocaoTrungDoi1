@@ -41,7 +41,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            padding: 40px 80px; /* Tăng padding */
+            padding: 40px 80px;
             background: var(--gradient-bg);
             opacity: 0; visibility: hidden;
             transform: translateZ(-200px) rotateY(10deg);
@@ -49,7 +49,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+            overflow-y: auto;
         }
 
         .slide.active {
@@ -70,32 +70,41 @@
             z-index: 0; pointer-events: none;
         }
 
-        /* --- HÌNH ẢNH (NÂNG CẤP) --- */
-        .image-container {
+        /* --- MEDIA (HÌNH ẢNH & VIDEO) --- */
+        .media-container {
             width: 100%;
-            max-width: 400px; /* Giới hạn chiều rộng ảnh */
-            margin: 0 auto;
+            margin: 20px auto;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            border: 5px solid #fff;
+            border: 3px solid var(--primary);
+            background: #eee;
             position: relative;
-            background: #eee; /* Màu nền khi ảnh chưa load */
+        }
+
+        /* Style cho Ảnh */
+        .image-fit {
+            height: 300px; /* Chiều cao cố định cho ảnh banner */
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        .image-container img {
+        .image-fit img {
             width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            height: 100%;
+            object-fit: cover; /* Ảnh phủ kín khung mà không bị méo */
         }
 
-        .image-container:hover img {
-            transform: scale(1.05);
+        /* Style cho Video Responsive (Tỉ lệ 16:9) */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
+            height: 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
         }
 
         /* --- TYPOGRAPHY --- */
@@ -157,7 +166,8 @@
             h2 { font-size: 1.8rem; }
             .slide { padding: 20px; }
             .content-box { font-size: 1rem; }
-            .image-container { max-width: 100%; margin-bottom: 20px; }
+            .media-container { max-width: 100%; margin-bottom: 20px; }
+            .image-fit { height: 200px; }
             .flex-mobile-col { flex-direction: column !important; }
         }
     </style>
@@ -169,9 +179,12 @@
         <div class="slide active">
             <i class="fa-solid fa-star bg-deco"></i>
             <div class="content-box">
-                <p style="text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 10px;" class="animate-up">Học phần: Đường lối Quốc phòng An ninh</p>
-                <h1 class="animate-up delay-1">Đường lối, Quan điểm của Đảng về Bảo vệ An ninh Quốc gia</h1>
-                <p class="animate-up delay-2" style="font-size: 1.5rem; color: #555;">Tập trung vào: Chính trị, Kinh tế, Văn hóa - Tư tưởng</p>
+                <div class="media-container image-fit animate-up" style="max-width: 800px; border: none; box-shadow: none; background: transparent; height: auto; margin-bottom: 20px;">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2560px-Flag_of_Vietnam.svg.png" alt="Cờ Việt Nam" style="width: 150px; height: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 10px;" class="animate-up delay-1">Học phần: Đường lối Quốc phòng An ninh</p>
+                <h1 class="animate-up delay-2">Đường lối, Quan điểm của Đảng về Bảo vệ An ninh Quốc gia</h1>
                 
                 <div class="animate-up delay-3" style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; display: inline-block;">
                     <span style="font-size: 1.1rem; color: var(--primary); font-weight: bold; background: #fff; padding: 5px 15px; border-radius: 20px; border: 1px solid var(--primary);">
@@ -189,15 +202,15 @@
             <div class="content-box card-grid animate-up">
                 <div class="card">
                     <h3><i class="fa-solid fa-earth-americas"></i> Bối cảnh</h3>
-                    <p>Thế giới biến động, các thế lực thù địch tăng cường chống phá, thực hiện âm mưu "Diễn biến hòa bình", bạo loạn lật đổ.</p>
+                    <p>Thế giới biến động, các thế lực thù địch tăng cường chống phá, thực hiện âm mưu "Diễn biến hòa bình".</p>
                 </div>
                 <div class="card">
                     <h3><i class="fa-solid fa-clock"></i> Tính chất</h3>
-                    <p>Đây là nhiệm vụ vừa mang tính <strong>cấp bách</strong>, khẩn trương, vừa mang tính <strong>thường xuyên, lâu dài</strong>.</p>
+                    <p>Vừa mang tính <strong>cấp bách</strong>, khẩn trương, vừa mang tính <strong>thường xuyên, lâu dài</strong>.</p>
                 </div>
                 <div class="card">
                     <h3><i class="fa-solid fa-heart-pulse"></i> Sống còn</h3>
-                    <p>Liên quan trực tiếp đến sự tồn vong của chế độ XHCN và sự ổn định, phát triển bền vững của đất nước.</p>
+                    <p>Liên quan trực tiếp đến sự tồn vong của chế độ và sự phát triển bền vững của đất nước.</p>
                 </div>
             </div>
         </div>
@@ -206,21 +219,21 @@
             <i class="fa-solid fa-users-rays bg-deco"></i>
             <h2>2. Quan điểm cơ bản của Đảng</h2>
             <div class="content-box animate-up">
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">1</span>
-                        <div><strong>Toàn dân, toàn diện:</strong> Xây dựng nền quốc phòng toàn dân, an ninh nhân dân.</div>
+                <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <li style="display: flex; align-items: flex-start; gap: 15px;">
+                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold; margin-top: 5px;">1</span>
+                        <div><strong>Toàn dân, toàn diện:</strong> Xây dựng nền QPTD, ANND vững mạnh.</div>
                     </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">2</span>
-                        <div><strong>Mục tiêu kép:</strong> Kết hợp chặt chẽ: Xây dựng CNXH và Bảo vệ Tổ quốc.</div>
+                    <li style="display: flex; align-items: flex-start; gap: 15px;">
+                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold; margin-top: 5px;">2</span>
+                        <div><strong>Mục tiêu kép:</strong> Kết hợp chặt chẽ hai nhiệm vụ chiến lược: Xây dựng và Bảo vệ Tổ quốc.</div>
                     </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">3</span>
-                        <div><strong>Lãnh đạo tuyệt đối:</strong> Đảng lãnh đạo trực tiếp về mọi mặt.</div>
+                    <li style="display: flex; align-items: flex-start; gap: 15px;">
+                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold; margin-top: 5px;">3</span>
+                        <div><strong>Lãnh đạo tuyệt đối:</strong> Đảng lãnh đạo trực tiếp, tuyệt đối về mọi mặt.</div>
                     </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">4</span>
+                    <li style="display: flex; align-items: flex-start; gap: 15px;">
+                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold; margin-top: 5px;">4</span>
                         <div><strong>Chủ động:</strong> Coi trọng phòng ngừa, giữ vững bên trong là chính.</div>
                     </li>
                 </ul>
@@ -229,87 +242,86 @@
 
         <div class="slide">
             <i class="fa-solid fa-book-open bg-deco"></i>
-            <h2>3. Nhiệm vụ cơ bản (P1)</h2>
+            <h2>3. Nhiệm vụ cơ bản</h2>
             <div class="content-box card-grid animate-up">
                 <div class="card">
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Giáo dục QP-AN</h3>
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Giáo dục & Kinh tế</h3>
                     <ul>
-                        <li>Nâng cao chất lượng giáo dục toàn dân.</li>
-                        <li>Thống nhất nhận thức về đối tượng, đối tác.</li>
+                        <li>Nâng cao chất lượng giáo dục QP-AN cho toàn dân.</li>
+                        <li>Phát triển các khu kinh tế - quốc phòng (biên giới, biển đảo).</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-coins"></i> Kinh tế - Quốc phòng</h3>
+                <div class="card" style="border-left-color: var(--yellow);">
+                    <h3><i class="fa-solid fa-handshake"></i> Đối ngoại & Hội nhập</h3>
                     <ul>
-                        <li>Xây dựng "thế trận lòng dân".</li>
-                        <li>Phát triển khu kinh tế - quốc phòng (biên giới, biển đảo).</li>
+                        <li>Thực hiện nhất quán đường lối đối ngoại độc lập, tự chủ.</li>
+                        <li>Bảo vệ Tổ quốc "từ sớm, từ xa" bằng biện pháp hòa bình.</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <i class="fa-solid fa-handshake bg-deco"></i>
-            <h2>3. Nhiệm vụ cơ bản (P2)</h2>
-            <div class="content-box animate-up">
-                <div style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid var(--yellow);">
-                    <h3 style="color: var(--dark); margin-bottom: 15px;">Đối ngoại & Hội nhập</h3>
-                    <p style="margin-bottom: 10px;"><strong>Chủ trương:</strong> Tăng cường đổi mới, nâng cao chất lượng hội nhập quốc tế về an ninh.</p>
-                    <p style="margin-bottom: 10px;"><strong>Chính sách:</strong> Độc lập, tự chủ, đa phương hóa, đa dạng hóa.</p>
-                    <p><strong>Mục tiêu:</strong> Tranh thủ nguồn lực bên ngoài, nâng cao vị thế, bảo vệ Tổ quốc "từ sớm, từ xa".</p>
                 </div>
             </div>
         </div>
 
         <div class="slide">
             <i class="fa-solid fa-list-check bg-deco"></i>
-            <h2>4. Giải pháp thực hiện</h2>
+            <h2>4. Giải pháp thực hiện chính</h2>
             <div class="content-box card-grid animate-up">
                 <div class="card">
-                    <h3><i class="fa-solid fa-brain"></i> Tư tưởng</h3>
-                    <p>Đấu tranh chống quan điểm sai trái. Khơi dậy lòng tự hào dân tộc.</p>
+                    <h3><i class="fa-solid fa-brain"></i> Tăng cường công tác tư tưởng</h3>
+                    <p>Đấu tranh phản bác các quan điểm sai trái, thù địch. Khơi dậy lòng yêu nước.</p>
+                </div>
+                 <div class="card">
+                    <h3><i class="fa-solid fa-user-shield"></i> Xây dựng hệ thống chính trị</h3>
+                    <p>Phòng ngừa hiệu quả "tự diễn biến", "tự chuyển hóa" trong nội bộ.</p>
                 </div>
                 <div class="card">
-                    <h3><i class="fa-solid fa-newspaper"></i> Văn hóa</h3>
-                    <p>Chống "thương mại hóa" báo chí. Ngăn chặn văn hóa độc hại.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-gavel"></i> Pháp luật</h3>
-                    <p>Hoàn thiện hệ thống pháp luật an ninh. Bảo vệ bí mật nhà nước.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-user-shield"></i> Nội bộ</h3>
-                    <p>Phòng ngừa "tự diễn biến", "tự chuyển hóa".</p>
+                    <h3><i class="fa-solid fa-gavel"></i> Hoàn thiện pháp luật</h3>
+                    <p>Xây dựng và hoàn thiện hệ thống pháp luật về bảo vệ an ninh quốc gia.</p>
                 </div>
             </div>
         </div>
 
         <div class="slide">
+             <i class="fa-brands fa-youtube bg-deco"></i>
+            <h2>Video Tư liệu: Thế trận lòng dân</h2>
+            <p class="animate-up" style="margin-bottom: 20px;">Sức mạnh bảo vệ Tổ quốc bắt nguồn từ nhân dân.</p>
+            
+            <div class="media-container video-wrapper animate-up delay-1" style="max-width: 900px;">
+                <iframe 
+                    src="https://www.youtube.com/embed/O9gT9W-Wp-0?rel=0" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="slide">
             <i class="fa-solid fa-user-graduate bg-deco"></i>
-            <h2>Trách nhiệm Trung Đội 1</h2>
+            <h2>Trách nhiệm của Sinh viên</h2>
             <div class="content-box animate-up flex-mobile-col" style="display: flex; gap: 40px; align-items: center;">
                 
                 <div style="flex: 1;">
-                    <div class="image-container">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Logo_Hoi_Sinh_vien_VN.svg/1200px-Logo_Hoi_Sinh_vien_VN.svg.png" 
-                             alt="Hình ảnh Trung Đội 1" 
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Ảnh+Trung+Đội+1';">
+                    <div class="media-container image-fit" style="max-width: 500px;">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Sinh viên Việt Nam" 
+                             style="object-position: center 20%;">
                     </div>
+                    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 10px;">(Hình ảnh minh họa: Thế hệ trẻ học tập và rèn luyện)</p>
                 </div>
                 
-                <div style="flex: 1.5;">
+                <div style="flex: 1.2;">
                     <ul class="check-list" style="list-style: none;">
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i> 
-                            <strong>Nhận thức:</strong> Nắm vững đường lối, quan điểm của Đảng.
+                        <li style="margin-bottom: 25px; font-size: 1.3rem;">
+                            <i class="fa-solid fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> 
+                            <strong>Nhận thức đúng:</strong> Nắm vững và tin tưởng tuyệt đối vào sự lãnh đạo của Đảng.
                         </li>
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i> 
-                            <strong>Hành động:</strong> Ra sức học tập, rèn luyện bản lĩnh chính trị.
+                        <li style="margin-bottom: 25px; font-size: 1.3rem;">
+                            <i class="fa-solid fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> 
+                            <strong>Hành động thiết thực:</strong> Ra sức học tập, rèn luyện bản lĩnh chính trị, đạo đức lối sống.
                         </li>
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-check-circle" style="color: var(--primary);"></i> 
-                            <strong>Mạng xã hội:</strong> Tỉnh táo, không chia sẻ tin giả, xấu độc.
+                        <li style="margin-bottom: 25px; font-size: 1.3rem;">
+                            <i class="fa-solid fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> 
+                            <strong>Tỉnh táo trên không gian mạng:</strong> Không chia sẻ tin giả, xấu độc; đấu tranh với các luận điệu xuyên tạc.
                         </li>
                     </ul>
                 </div>
@@ -319,16 +331,18 @@
         <div class="slide">
             <div style="text-align: center; width: 100%;" class="animate-up">
                 <h1 style="color: var(--primary);">TỔNG KẾT</h1>
-                <p style="font-size: 2rem; margin: 30px 0; font-family: 'Playfair Display', serif;">"Bảo vệ an ninh quốc gia là sự nghiệp của toàn dân"</p>
-                <div style="font-size: 5rem; color: var(--yellow); animation: spin 10s linear infinite;">★</div>
-                <p style="margin-top: 50px;">Trung Đội 1 cảm ơn Thầy Cô và các bạn đã lắng nghe!</p>
+                <p style="font-size: 2rem; margin: 30px 0; font-family: 'Playfair Display', serif; font-weight: bold;">"Bảo vệ an ninh quốc gia là sự nghiệp của toàn dân"</p>
+                <div style="font-size: 4rem; color: var(--yellow); margin: 30px 0;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.2rem;">Trung Đội 1 trân trọng cảm ơn Thầy Cô và các bạn đã lắng nghe!</p>
             </div>
         </div>
 
     </div>
 
     <div class="progress-indicator">
-        <span id="currSlide">1</span> / <span id="totalSlides">8</span>
+        <span id="currSlide">1</span> / <span id="totalSlides">9</span>
     </div>
     
     <div class="controls">
@@ -350,13 +364,22 @@
                 slide.classList.remove('active');
                 if (idx === current) {
                     slide.classList.add('active');
-                    // Reset animations để chạy lại mỗi lần chuyển slide
+                    // Reset animations
                     const animated = slide.querySelectorAll('.animate-up');
                     animated.forEach(el => {
                         el.style.animation = 'none';
                         el.offsetHeight; /* trigger reflow */
                         el.style.animation = null; 
                     });
+                    
+                    // Dừng video khi chuyển slide khác (nếu có)
+                    const iframe = slide.querySelector('iframe');
+                    if (!iframe) {
+                        document.querySelectorAll('iframe').forEach(vid => {
+                            let src = vid.src;
+                            vid.src = src; /* Reload iframe để dừng video */
+                        });
+                    }
                 }
             });
             currDisplay.innerText = current + 1;
