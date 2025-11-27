@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảo vệ ANQG - Trung Đội 1</title>
+    <title>Bảo vệ An Ninh Chính Trị, Kinh Tế, Văn Hóa - Trung Đội 1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
             --primary: #da251d; /* Đỏ cờ */
             --yellow: #ffcd00; /* Vàng sao */
             --dark: #1a1a1a;
-            --light: #f5f5f5;
             --blue-game: #0f0c29;
             --gradient-bg: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
         }
@@ -29,32 +28,22 @@
             color: #333;
         }
 
-        /* --- LAYOUT CHÍNH --- */
-        #presentation {
-            position: relative;
-            width: 100%; height: 100%;
-            perspective: 1000px;
-        }
+        /* --- LAYOUT --- */
+        #presentation { position: relative; width: 100%; height: 100%; perspective: 1000px; }
 
         .slide {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             padding: 40px 80px;
             background: var(--gradient-bg);
             opacity: 0; visibility: hidden;
             transform: translateZ(-200px) rotateY(10deg);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: flex; flex-direction: column; justify-content: center;
             overflow-y: auto;
         }
 
         .slide.active {
-            opacity: 1; visibility: visible;
-            transform: translateZ(0) rotateY(0deg);
-            z-index: 10;
+            opacity: 1; visibility: visible; transform: translateZ(0) rotateY(0deg); z-index: 10;
         }
 
         .slide::before {
@@ -64,130 +53,84 @@
 
         .bg-deco {
             position: absolute; bottom: -50px; right: -50px;
-            font-size: 30rem; color: rgba(0,0,0,0.03);
-            z-index: 0; pointer-events: none;
+            font-size: 30rem; color: rgba(0,0,0,0.03); z-index: 0; pointer-events: none;
         }
 
-        /* --- VIDEO & ẢNH --- */
+        /* --- MEDIA --- */
         .media-container {
-            width: 100%;
-            margin: 20px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border: 3px solid #fff;
-            background: #000;
+            width: 100%; margin: 20px auto; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 3px solid #fff; background: #000;
         }
 
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-        }
-        .video-wrapper iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .img-vietnam {
-            height: 350px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
+        .img-vietnam { height: 350px; width: 100%; object-fit: cover; border-radius: 12px; }
 
-        /* --- GAME AI LÀ TRIỆU PHÚ STYLE --- */
+        /* --- GAME AI LÀ TRIỆU PHÚ --- */
         .game-wrapper {
             background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            padding: 0 !important; /* Override slide padding */
+            color: #fff; padding: 0 !important;
         }
-        .game-wrapper::before { display: none; } /* Bỏ vạch đỏ bên trái */
+        .game-wrapper::before { display: none; }
 
         .game-container {
-            width: 100%; height: 100%;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            padding: 20px;
-            position: relative;
+            width: 100%; height: 100%; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; padding: 20px; position: relative;
         }
 
         .game-logo {
             font-size: 3rem; color: var(--yellow); margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 205, 0, 0.5);
-            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 20px rgba(255, 205, 0, 0.5); font-family: 'Playfair Display', serif;
         }
 
         .question-box {
-            background: #000;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            padding: 30px;
-            width: 80%;
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            background: #000; border: 2px solid #fff; border-radius: 10px;
+            padding: 30px; width: 85%; text-align: center; font-size: 1.4rem;
+            margin-bottom: 30px; box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            min-height: 120px; display: flex; align-items: center; justify-content: center;
         }
 
-        .answers-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 80%;
-        }
+        .answers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 85%; }
 
         .answer-btn {
             background: linear-gradient(90deg, #000 0%, #1e3c72 50%, #000 100%);
-            border: 1px solid #aaa;
-            border-radius: 30px;
-            padding: 15px 20px;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            text-align: left;
-            transition: 0.2s;
-            position: relative;
+            border: 1px solid #aaa; border-radius: 30px; padding: 15px 20px;
+            color: #fff; font-size: 1.1rem; cursor: pointer; text-align: left;
+            transition: 0.2s; position: relative;
         }
-
         .answer-btn:hover {
             background: linear-gradient(90deg, #000 0%, #2a5298 50%, #000 100%);
-            color: var(--yellow);
-            border-color: var(--yellow);
+            color: var(--yellow); border-color: var(--yellow);
         }
-
         .answer-btn.correct {
             background: linear-gradient(90deg, #000 0%, #00b09b 50%, #000 100%);
             border-color: #00ff00; animation: blink 0.5s 3;
         }
-
         .answer-btn.wrong {
             background: linear-gradient(90deg, #000 0%, #cb2d3e 50%, #000 100%);
             border-color: red;
         }
-
         @keyframes blink { 50% { opacity: 0.5; } }
 
-        .game-controls { margin-top: 20px; }
         .next-q-btn {
-            padding: 10px 30px; background: var(--yellow); color: #000;
-            border: none; border-radius: 5px; font-weight: bold; cursor: pointer;
-            display: none;
+            margin-top: 20px; padding: 10px 30px; background: var(--yellow); color: #000;
+            border: none; border-radius: 5px; font-weight: bold; cursor: pointer; display: none;
         }
 
         /* --- TYPOGRAPHY --- */
         h1, h2 { font-family: 'Playfair Display', serif; color: var(--primary); line-height: 1.2; }
-        h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        h2 { font-size: 2.5rem; margin-bottom: 30px; position: relative; display: inline-block;}
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        h2 { font-size: 2.2rem; margin-bottom: 25px; position: relative; display: inline-block;}
         h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--yellow); margin-top: 10px; }
         .content-box { font-size: 1.2rem; line-height: 1.6; max-width: 1200px; }
 
-        /* --- CARDS --- */
+        /* --- UI COMPONENTS --- */
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
         .card { background: rgba(255,255,255,0.9); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #b71c1c; }
 
-        /* --- NAV --- */
         .controls { position: fixed; bottom: 30px; right: 40px; z-index: 100; display: flex; gap: 15px; }
         .btn-nav { width: 50px; height: 50px; border-radius: 50%; border: none; background: var(--primary); color: white; font-size: 1.2rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(218, 37, 29, 0.4); }
         .btn-nav:hover { transform: scale(1.1); background: #b0100a; }
@@ -201,7 +144,7 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; } h2 { font-size: 1.5rem; }
+            h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; }
             .slide { padding: 20px; }
             .answers-grid { grid-template-columns: 1fr; }
             .question-box { font-size: 1.1rem; width: 100%; }
@@ -217,53 +160,43 @@
             <i class="fa-solid fa-star bg-deco"></i>
             <div class="content-box">
                 <p style="text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 10px;" class="animate-up">Học phần: Đường lối Quốc phòng An ninh</p>
-                <h1 class="animate-up delay-1">Quan điểm của Đảng về Bảo vệ An ninh Quốc gia</h1>
+                <h1 class="animate-up delay-1">Đường lối Bảo vệ An ninh Chính trị, Kinh tế, Văn hóa Tư tưởng</h1>
+                <p class="animate-up delay-2" style="font-size: 1.3rem; font-style: italic;">"Xây dựng CNXH và Bảo vệ Tổ quốc là hai nhiệm vụ chiến lược"</p>
+                
                 <div class="animate-up delay-2" style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; display: inline-block;">
                     <span style="font-size: 1.1rem; color: var(--primary); font-weight: bold; background: #fff; padding: 5px 15px; border-radius: 20px; border: 1px solid var(--primary);">
                         <i class="fa-solid fa-person-military-rifle"></i> Thực hiện: TRUNG ĐỘI 1
                     </span>
-                    <br><small style="margin-top: 10px; display:block; color:#666;">Nhấn ➡ để bắt đầu</small>
+                    <br><small style="margin-top: 10px; display:block; color:#666;">Dùng phím mũi tên ➡ để bắt đầu</small>
                 </div>
             </div>
         </div>
 
         <div class="slide">
-            <i class="fa-solid fa-shield-halved bg-deco"></i>
-            <h2>Quan điểm cốt lõi</h2>
-            <div class="content-box animate-up">
-                <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <li style="display: flex; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">1</span>
-                        <div><strong>Toàn dân:</strong> Phát huy sức mạnh khối đại đoàn kết toàn dân tộc.</div>
-                    </li>
-                    <li style="display: flex; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">2</span>
-                        <div><strong>Mục tiêu kép:</strong> Xây dựng CNXH đi đôi với Bảo vệ Tổ quốc.</div>
-                    </li>
-                    <li style="display: flex; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">3</span>
-                        <div><strong>Lãnh đạo:</strong> Đảng lãnh đạo tuyệt đối, trực tiếp về mọi mặt.</div>
-                    </li>
-                    <li style="display: flex; gap: 15px;">
-                        <span style="background:var(--primary); color:white; min-width:35px; height:35px; display:flex; justify-content:center; align-items:center; border-radius:50%; font-weight:bold;">4</span>
-                        <div><strong>Phương châm:</strong> Độc lập, tự chủ, tự cường.</div>
-                    </li>
-                </ul>
+            <i class="fa-solid fa-book bg-deco"></i>
+            <h2>Nhiệm vụ & Bối cảnh (Theo tài liệu)</h2>
+            <div class="content-box card-grid animate-up">
+                <div class="card">
+                    <h3><i class="fa-solid fa-quote-left"></i> Lời Bác Hồ dạy</h3>
+                    <p>"Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau giữ lấy nước." - Khẳng định quyết tâm giữ nước.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-triangle-exclamation"></i> Nguy cơ & Thách thức</h3>
+                    <p>Các thế lực thù địch thực hiện âm mưu <strong>"Diễn biến hòa bình"</strong>, bạo loạn lật đổ, lợi dụng vấn đề dân chủ, nhân quyền.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-shield-heart"></i> Sức mạnh bảo vệ</h3>
+                    <p>Dựa trên <strong>khối đại đoàn kết toàn dân</strong>, kết hợp sức mạnh dân tộc với sức mạnh thời đại.</p>
+                </div>
             </div>
         </div>
 
         <div class="slide">
              <i class="fa-brands fa-youtube bg-deco"></i>
             <h2>Tư liệu: Giai điệu Tổ Quốc</h2>
-            <p class="animate-up" style="margin-bottom: 15px;">"Tổ quốc linh thiêng trong trái tim mỗi người dân Việt Nam."</p>
-            
-            <div class="media-container video-wrapper animate-up delay-1" style="max-width: 900px;">
-                <iframe 
-                    src="https://www.youtube.com/embed/E_uJ8hZpQyE?rel=0" 
-                    title="Tổ quốc gọi tên mình" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+            <p class="animate-up" style="margin-bottom: 15px;">Khơi dậy lòng tự hào dân tộc trong công cuộc bảo vệ chủ quyền.</p>
+            <div class="media-container video-wrapper animate-up delay-1" style="max-width: 800px;">
+                <iframe src="https://www.youtube.com/embed/E_uJ8hZpQyE?rel=0" title="Tổ quốc gọi tên mình" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -271,29 +204,25 @@
             <i class="fa-solid fa-user-graduate bg-deco"></i>
             <h2>Trách nhiệm Sinh viên</h2>
             <div class="content-box animate-up" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
-                
                 <div style="flex: 1; min-width: 300px;">
                     <div style="box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 4px solid #fff;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Chi%E1%BA%BFn_d%E1%BB%8Bch_M%C3%B9a_h%C3%A8_xanh_c%E1%BB%A7a_sinh_vi%C3%AAn_tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_C%C3%B4ng_ngh%E1%BB%87_Th%C3%B4ng_tin_-_%C4%90HQG-HCM_t%E1%BA%A1i_t%E1%BB%89nh_V%C4%A9nh_Long_n%C4%83m_2024.jpg" 
-                             class="img-vietnam" 
-                             alt="Thanh niên tình nguyện Việt Nam">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Chi%E1%BA%BFn_d%E1%BB%8Bch_M%C3%B9a_h%C3%A8_xanh_c%E1%BB%A7a_sinh_vi%C3%AAn_tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_C%C3%B4ng_ngh%E1%BB%87_Th%C3%B4ng_tin_-_%C4%90HQG-HCM_t%E1%BA%A1i_t%E1%BB%89nh_V%C4%A9nh_Long_n%C4%83m_2024.jpg/1024px-Chi%E1%BA%BFn_d%E1%BB%8Bch_M%C3%B9a_h%C3%A8_xanh_c%E1%BB%A7a_sinh_vi%C3%AAn_tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_C%C3%B4ng_ngh%E1%BB%87_Th%C3%B4ng_tin_-_%C4%90HQG-HCM_t%E1%BA%A1i_t%E1%BB%89nh_V%C4%A9nh_Long_n%C4%83m_2024.jpg" 
+                             class="img-vietnam" alt="Thanh niên tình nguyện">
                     </div>
-                    <p style="text-align: center; margin-top: 10px; font-style: italic; color: #555;">Thanh niên Việt Nam xung kích tình nguyện</p>
                 </div>
-                
                 <div style="flex: 1.2;">
                     <ul class="check-list" style="list-style: none;">
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-circle-check" style="color: var(--primary);"></i> 
-                            Nâng cao nhận thức chính trị, không dao động.
+                        <li style="margin-bottom: 20px; font-size: 1.2rem;">
+                            <i class="fa-solid fa-pen-nib" style="color: var(--primary);"></i> 
+                            <strong>Học tập:</strong> Nhận thức đầy đủ về âm mưu "Diễn biến hòa bình".
                         </li>
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-book-open" style="color: var(--primary);"></i> 
-                            Học tập tốt môn Giáo dục QP-AN.
+                        <li style="margin-bottom: 20px; font-size: 1.2rem;">
+                            <i class="fa-solid fa-heart" style="color: var(--primary);"></i> 
+                            <strong>Rèn luyện:</strong> Tu dưỡng bản thân để trở thành công dân tốt, đáp ứng yêu cầu CNH-HĐH.
                         </li>
-                        <li style="margin-bottom: 20px; font-size: 1.3rem;">
-                            <i class="fa-solid fa-shield-cat" style="color: var(--primary);"></i> 
-                            Tỉnh táo trên không gian mạng, đấu tranh với tin giả.
+                        <li style="margin-bottom: 20px; font-size: 1.2rem;">
+                            <i class="fa-solid fa-globe" style="color: var(--primary);"></i> 
+                            <strong>Hành động:</strong> Phê phán các quan điểm sai trái, văn hóa đồi trụy.
                         </li>
                     </ul>
                 </div>
@@ -303,34 +232,27 @@
         <div class="slide game-wrapper" id="gameSlide">
             <div class="game-container animate-up">
                 <div class="game-logo"><i class="fa-solid fa-trophy"></i> AI LÀ TRIỆU PHÚ</div>
+                <p style="color: #ccc; margin-bottom: 10px;">(Câu hỏi dựa trên nội dung Bài 7)</p>
                 
-                <div id="game-ui">
-                    <div class="question-box" id="question-text">
-                        Đang tải câu hỏi...
-                    </div>
-
-                    <div class="answers-grid" id="options-container">
-                        </div>
-
-                    <div class="game-controls">
-                        <button class="next-q-btn" id="next-btn" onclick="nextQuestion()">Câu tiếp theo <i class="fa-solid fa-forward"></i></button>
-                    </div>
+                <div id="game-ui" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                    <div class="question-box" id="question-text">Loading...</div>
+                    <div class="answers-grid" id="options-container"></div>
+                    <button class="next-q-btn" id="next-btn" onclick="nextQuestion()">Tiếp tục <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
 
                 <div id="game-end" style="display: none; text-align: center;">
-                    <h2 style="color: var(--yellow);">CHÚC MỪNG!</h2>
-                    <p style="font-size: 1.5rem; margin-bottom: 20px;">Bạn đã hoàn thành phần thi của Trung Đội 1</p>
-                    <button onclick="resetGame()" style="padding: 10px 20px; cursor: pointer;">Chơi lại</button>
+                    <h2 style="color: var(--yellow);">HOÀN THÀNH XUẤT SẮC!</h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 20px;">Bạn đã nắm vững kiến thức bài học.</p>
+                    <button onclick="resetGame()" style="padding: 10px 20px; cursor: pointer; background: var(--primary); color: white; border: none; border-radius: 5px;">Chơi lại</button>
                 </div>
             </div>
         </div>
 
         <div class="slide">
             <div style="text-align: center; width: 100%;" class="animate-up">
-                <h1 style="color: var(--primary);">CẢM ƠN THẦY CÔ VÀ CÁC BẠN</h1>
-                <p style="font-size: 2rem; margin: 30px 0;">Đã lắng nghe bài thuyết trình của</p>
-                <h2 style="font-size: 3rem;">TRUNG ĐỘI 1</h2>
-                <div style="font-size: 4rem; color: var(--yellow); margin-top: 30px;">★ ★ ★</div>
+                <h1 style="color: var(--primary);">TRUNG ĐỘI 1</h1>
+                <p style="font-size: 2rem; margin: 30px 0;">Cảm ơn Thầy Cô và các bạn đã lắng nghe!</p>
+                <div style="font-size: 4rem; color: var(--yellow);">★ ★ ★</div>
             </div>
         </div>
 
@@ -339,20 +261,18 @@
     <div class="progress-indicator">
         <span id="currSlide">1</span> / <span id="totalSlides">6</span>
     </div>
-    
     <div class="controls">
         <button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn-nav" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <script>
-        // --- LOGIC SLIDESHOW ---
+        // --- SLIDESHOW LOGIC ---
         const slides = document.querySelectorAll('.slide');
         let current = 0;
         const total = slides.length;
         const currDisplay = document.getElementById('currSlide');
         const totalDisplay = document.getElementById('totalSlides');
-
         totalDisplay.innerText = total;
 
         function update() {
@@ -362,12 +282,9 @@
                     slide.classList.add('active');
                     // Reset animations
                     slide.querySelectorAll('.animate-up').forEach(el => {
-                        el.style.animation = 'none';
-                        el.offsetHeight; 
-                        el.style.animation = null; 
+                        el.style.animation = 'none'; el.offsetHeight; el.style.animation = null; 
                     });
-                    
-                    // Pause Video if leaving slide
+                    // Pause video when leaving slide
                     const iframe = slide.querySelector('iframe');
                     if (!iframe) {
                         document.querySelectorAll('iframe').forEach(v => {
@@ -387,27 +304,57 @@
             if (e.key === 'ArrowLeft') prevSlide();
         });
 
-        // --- LOGIC GAME: AI LÀ TRIỆU PHÚ ---
+        // --- GAME LOGIC (DATA TỪ SÁCH) ---
         const questions = [
             {
-                q: "Nền quốc phòng của Việt Nam là nền quốc phòng...?",
-                options: ["A. Quân sự hóa", "B. Toàn dân, toàn diện", "C. Cục bộ", "D. Vũ trang toàn diện"],
-                correct: 1 // Index B
+                q: "Hoàn thiện câu nói của Bác Hồ: 'Các vua Hùng đã có công dựng nước...'",
+                options: [
+                    "A. Ta phải giữ gìn bản sắc văn hóa",
+                    "B. Bác cháu ta phải cùng nhau giữ lấy nước",
+                    "C. Ta phải xây dựng đất nước giàu mạnh",
+                    "D. Chúng ta phải bảo vệ an ninh quốc gia"
+                ],
+                correct: 1 // Đáp án B (Trang 57)
             },
             {
-                q: "Ai lãnh đạo tuyệt đối, trực tiếp về mọi mặt đối với ANQG?",
-                options: ["A. Chủ tịch nước", "B. Quốc hội", "C. Đảng Cộng sản Việt Nam", "D. Bộ Quốc phòng"],
-                correct: 2 // Index C
+                q: "Chiến lược 'ngăn chặn, đẩy lùi và làm thất bại mọi âm mưu' được gọi là gì?",
+                options: [
+                    "A. Chiến tranh lạnh",
+                    "B. Xâm lược vũ trang",
+                    "C. Diễn biến hòa bình",
+                    "D. Thương mại hóa"
+                ],
+                correct: 2 // Đáp án C (Trang 57-58)
             },
             {
-                q: "Phương châm bảo vệ Tổ quốc là gì?",
-                options: ["A. Tấn công là chính", "B. Nhờ sự giúp đỡ bên ngoài", "C. Từ sớm, từ xa", "D. Đợi giặc đến mới đánh"],
-                correct: 2 // Index C
+                q: "Để bảo vệ an ninh, Đảng chủ trương xây dựng 'thế trận' nào làm nền tảng?",
+                options: [
+                    "A. Thế trận lòng dân",
+                    "B. Thế trận quân sự",
+                    "C. Thế trận kinh tế",
+                    "D. Thế trận ngoại giao"
+                ],
+                correct: 0 // Đáp án A (Trang 59 - Mục 2.2)
             },
             {
-                q: "Sinh viên KHÔNG nên làm gì khi tham gia MXH?",
-                options: ["A. Chia sẻ tin giả (Fake news)", "B. Học tập kiến thức", "C. Kết nối bạn bè", "D. Giải trí lành mạnh"],
-                correct: 0 // Index A
+                q: "Phương châm đối ngoại của Việt Nam là: Việt Nam muốn là...?",
+                options: [
+                    "A. Nước lãnh đạo ASEAN",
+                    "B. Đồng minh quân sự",
+                    "C. Bạn, là đối tác tin cậy",
+                    "D. Trung lập hoàn toàn"
+                ],
+                correct: 2 // Đáp án C (Trang 60)
+            },
+            {
+                q: "Trong lĩnh vực văn hóa tư tưởng, cần đấu tranh chống lại xu hướng nào?",
+                options: [
+                    "A. Hội nhập quốc tế",
+                    "B. Thương mại hóa, lai căng văn hóa",
+                    "C. Giữ gìn bản sắc dân tộc",
+                    "D. Giao lưu văn hóa"
+                ],
+                correct: 1 // Đáp án B (Trang 61)
             }
         ];
 
@@ -420,9 +367,7 @@
 
         function loadQuestion() {
             if (qIndex >= questions.length) {
-                gameUI.style.display = 'none';
-                gameEnd.style.display = 'block';
-                return;
+                gameUI.style.display = 'none'; gameEnd.style.display = 'block'; return;
             }
             
             const currentQ = questions[qIndex];
@@ -432,17 +377,15 @@
 
             currentQ.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'answer-btn';
-                btn.innerText = opt;
+                btn.className = 'answer-btn'; btn.innerText = opt;
                 btn.onclick = () => checkAnswer(idx, btn);
                 optContainer.appendChild(btn);
             });
         }
 
         function checkAnswer(selectedIndex, btnElement) {
-            // Disable all buttons
             const allBtns = optContainer.querySelectorAll('.answer-btn');
-            allBtns.forEach(b => b.disabled = true);
+            allBtns.forEach(b => b.disabled = true); // Khóa nút sau khi chọn
 
             const correctIndex = questions[qIndex].correct;
 
@@ -450,28 +393,19 @@
                 btnElement.classList.add('correct');
             } else {
                 btnElement.classList.add('wrong');
-                // Highlight correct answer
-                allBtns[correctIndex].classList.add('correct');
+                allBtns[correctIndex].classList.add('correct'); // Hiện đáp án đúng
             }
             nextBtn.style.display = 'inline-block';
         }
 
-        function nextQuestion() {
-            qIndex++;
-            loadQuestion();
-        }
+        function nextQuestion() { qIndex++; loadQuestion(); }
 
         function resetGame() {
-            qIndex = 0;
-            gameUI.style.display = 'block';
-            gameEnd.style.display = 'none';
-            loadQuestion();
+            qIndex = 0; gameUI.style.display = 'flex'; gameEnd.style.display = 'none'; loadQuestion();
         }
 
-        // Init
         update();
         loadQuestion();
-
     </script>
 </body>
 </html>
